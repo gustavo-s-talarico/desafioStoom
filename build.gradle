@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.3.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'br.com.desafio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 14
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('javax.xml.bind:jaxb-api:2.3.0')
+	compile("com.h2database:h2")
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
